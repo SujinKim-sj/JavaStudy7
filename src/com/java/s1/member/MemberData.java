@@ -1,5 +1,6 @@
 package com.java.s1.member;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
@@ -62,7 +63,16 @@ public class MemberData {
 		System.out.println("전화번호 입력");
 		memberDTO.setPhone(sc.next()); 
 		System.out.println("생일 입력");
-		memberDTO.setBirth(sc.next()); 
+		
+		//생일 패턴 - 20001224
+		String s = sc.next();
+		int year = Integer.parseInt(s.substring(0, 4));
+		int month = Integer.parseInt(s.substring(4, 6)) - 1;
+		int date = Integer.parseInt(s.substring(6));
+		
+		Calendar ca = Calendar.getInstance();
+		ca.set(year, month, date, 0, 0, 0);
+		memberDTO.setBirth(ca);
 		
 		return memberDTO;
 	}

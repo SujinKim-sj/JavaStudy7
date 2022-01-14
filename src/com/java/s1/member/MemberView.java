@@ -1,5 +1,7 @@
 package com.java.s1.member;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 public class MemberView {
@@ -21,7 +23,15 @@ public class MemberView {
 			System.out.println("별명 : " + memberDTO.getNickname());
 			System.out.println("이메일 : " + memberDTO.getEmail());
 			System.out.println("폰번호 : " + memberDTO.getPhone());
-			System.out.println("생일 : " + memberDTO.getBirth());			
+
+			//2000년 12월 24일 (수) 
+			Calendar ca = memberDTO.getBirth();
+			String pattern = "yyyy년 MM월 dd일 (E)";
+			SimpleDateFormat sd = new SimpleDateFormat(pattern);
+			String result = sd.format(ca.getTime());
+			
+			System.out.println("생일 : " + result);			
+			
 		} else {
 			System.out.println("정보가 없습니다");
 		}
@@ -35,7 +45,14 @@ public class MemberView {
 			System.out.println("별명 : " + memberDTO.getNickname());
 			System.out.println("이메일 : " + memberDTO.getEmail());
 			System.out.println("폰번호 : " + memberDTO.getPhone());
-			System.out.println("생일 : " + memberDTO.getBirth());
+			//System.out.println("생일 : " + memberDTO.getBirth());
+			
+			Calendar ca = memberDTO.getBirth();
+			String pattern = "yyyy년 MM월 dd일 (E)";
+			SimpleDateFormat sd = new SimpleDateFormat(pattern);
+			String result = sd.format(ca.getTime());
+			
+			System.out.println("생일 : " + result);
 			System.out.println("===============");
 		}
 		
